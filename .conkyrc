@@ -1,0 +1,167 @@
+# .conkyrc
+
+alignment top_right
+gap_x 30
+gap_y 30
+background yes
+border_width 1
+cpu_avg_samples 2
+default_color grey
+default_outline_color black
+default_shade_color lightgrey
+draw_borders no
+draw_graph_borders no
+draw_outline no
+draw_shades no
+use_xft yes
+xftalpha 0.75
+xftfont DejaVu Sans:size=8
+minimum_size 5 5
+maximum_width 300
+net_avg_samples 2
+no_buffers yes
+double_buffer yes
+text_buffer_size 2048
+out_to_console no
+out_to_stderr no
+extra_newline no
+own_window yes
+#own_window_class Conky
+#own_window_type desktop # makes it part of the desktop, GNOME hides this upon clicking desktop
+own_window_type normal # makes it part of the desktop, but GNOME does not hide it
+#own_window_type panel # cannot be hidden by other windows
+#own_window_type dock # can be hidden by other windows, but cannot be aligned
+own_window_transparent yes
+own_window_argb_visual yes
+own_window_argb_value 200
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+stippled_borders 0
+uppercase no
+use_spacer none
+show_graph_scale no
+show_graph_range no
+imlib_cache_size 0 # Don't Cache Images
+
+#update_interval 0.5
+update_interval 1.0
+#update_interval 2.0
+#update_interval 3.0
+#update_interval 4.0
+#update_interval 5.0
+#update_interval 10.0
+#update_interval 15.0
+#update_interval 30.0
+#update_interval 60.0
+
+TEXT
+
+${color #ffcb48}${font openlogos:size=40}N${font DejaVu Sans:size=16} ${voffset -25}${offset -10} FEDORA 23
+${voffset -10}${offset 45}$color${font}$sysname $kernel on $machine
+
+${color #ffcb48}${font StyleBats:size=18}k ${font DejaVu Sans:size=16}BRAZZAVILLE ${hr 1}${font}
+
+${color slate grey}Up:$color $uptime${goto 150}${cpugraph 50,150 4d8e00 A80000 -t}
+${voffset -50}${color slate grey}CPU:$color $cpu%
+${color slate grey}Processes:$color $running_processes/$processes
+${color slate grey}Load:$color $loadavg
+${color slate grey}CPU 0 $color${cpu cpu1}% ${cpubar cpu1}
+${color slate grey}CPU 1 $color${cpu cpu2}% ${cpubar cpu2}
+${color slate grey}CPU 2 $color${cpu cpu3}% ${cpubar cpu3}
+${color slate grey}CPU 3 $color${cpu cpu4}% ${cpubar cpu4}
+${color slate grey}Swap:$color $swap/$swapmax - $swapperc% ${swapbar 4}
+${color slate grey}RAM:$color $mem/$memmax - $memperc% ${memgraph 10,128 4d8e00 A80000 -t}
+
+${color #ffcb48}${font StyleBats:size=18}l ${font DejaVu Sans:size=16}Processes ${hr 1}${font}
+
+${color slate grey}Name $alignr PID CPU% MEM%
+$color${top name 1} $alignr$color ${top pid 1} ${top cpu 1}% ${top mem 1}%
+$color${top name 2} $alignr$color ${top pid 2} ${top cpu 2}% ${top mem 2}%
+$color${top name 3} $alignr$color ${top pid 3} ${top cpu 3}% ${top mem 3}%
+$color${top name 4} $alignr$color ${top pid 4} ${top cpu 4}% ${top mem 4}%
+$color${top name 5} $alignr$color ${top pid 5} ${top cpu 5}% ${top mem 5}%
+$color${top name 6} $alignr$color ${top pid 6} ${top cpu 6}% ${top mem 6}%
+$color${top name 7} $alignr$color ${top pid 7} ${top cpu 7}% ${top mem 7}%
+$color${top name 8} $alignr$color ${top pid 8} ${top cpu 8}% ${top mem 8}%
+$color${top name 9} $alignr$color ${top pid 9} ${top cpu 9}% ${top mem 9}%
+
+${color #ffcb48}${font StyleBats:size=18}j ${font DejaVu Sans:size=16}File Systems ${hr 1}${font}
+
+${color slate grey} / $color${fs_used}/${fs_size} ${alignr}${color slate grey}Used: $color${fs_used_perc /}% ${color slate grey}Free: $color${fs_free_perc /}%
+${fs_bar 6}
+${color slate grey} /home $color${fs_used /home}/${fs_size /home} ${alignr}${color slate grey}Used: $color${fs_used_perc /home}% ${color slate grey}Free: $color${fs_free_perc /home}%
+${fs_bar 6 /home}
+#${color slate grey} /adan $color${fs_used /adan}/${fs_size /adan} ${alignr}${color slate grey}Used: $color${fs_used_perc /adan}% ${color slate grey}Free: $color${fs_free_perc /adan}%
+#${fs_bar 6 /adan}
+#${color slate grey} /nadasoft $color${fs_used /nadasoft}/${fs_size /nadasoft} ${alignr}${color slate grey}Used: $color${fs_used_perc /nadasoft}% ${color slate grey}Free: $color${fs_free_perc /nadasoft}%
+#${fs_bar 6 /nadasoft}
+#${color slate grey} /warez $color${fs_used /warez}/${fs_size /warez} ${alignr}${color slate grey}Used: $color${fs_used_perc /warez}% ${color slate grey}Free: $color${fs_free_perc /warez}%
+#${fs_bar 6 /warez}
+#${color slate grey} /tv $color${fs_used /tv}/${fs_size /tv} ${alignr}${color slate grey}Used: $color${fs_used_perc /tv}% ${color slate grey}Free: $color${fs_free_perc /tv}%
+#${fs_bar 6 /tv}
+#${color slate grey} /movies $color${fs_used /movies}/${fs_size /movies} ${alignr}${color slate grey}Used: $color${fs_used_perc /movies}% ${color slate grey}Free: $color${fs_free_perc /movies}%
+#${fs_bar 6 /movies}
+
+${color slate grey}${alignr}HDD temperature: $color${execpi 600 hddtemp -n} C
+
+${color #ffcb48}${font StyleBats:size=18}2 ${font DejaVu Sans:size=16}Network ${hr 1}${font}
+
+#${color slate grey}Public: ${goto 41}$color${execpi 600 wget -q -O /dev/stdout http://checkip.dyndns.org/ | cut -d : -f 2- | cut -d \< -f -1} ${goto 150}${downspeedgraph em1 30,150 4d8e00 A80000 -t}
+#${color slate grey}Public: ${goto 41}$color${execpi 600 dig +short myip.opendns.com @resolver1.opendns.com} ${goto 150}${downspeedgraph em1 30,150 4d8e00 A80000 -t}
+#${color slate grey}Public: ${goto 41}$color${execpi 600 curl ip.appspot.com} ${goto 150}${downspeedgraph em1 30,150 4d8e00 A80000 -t}
+${color slate grey}Public: ${goto 41}$color${execpi 600 curl icanhazip.com} ${goto 150}${downspeedgraph em1 30,150 4d8e00 A80000 -t}
+${voffset -30}${color slate grey}IP: ${goto 45}$color${addr em1}
+${color slate grey}Down: ${goto 45}$color${downspeedf em1} Kb/sec
+${color slate grey}Up: ${goto 45}$color${upspeedf em1} Kb/sec${goto 150}${upspeedgraph em1 30,150 4d8e00 A80000 -t}
+${voffset -30}${color slate grey}Downloaded: $color${totaldown em1}
+${color slate grey}Uploaded: $color${totalup em1}
+###
+${color #ffcb48}${font StyleBats:size=18}Q ${font DejaVu Sans:size=16}Weather ${hr 1}${font}
+$color${image $HOME/.accuweather_conky/cc.png -p 0,705 -s 180x108}
+${color slate grey}${execpi 600 sed -n '1p' $HOME/.accuweather_conky/messages}${goto 190}${color slate grey}Temp: $color${alignr}${execpi 600 sed -n '29p' $HOME/.accuweather_conky/curr_cond}°C (${execpi 600 sed -n '30p' $HOME/.accuweather_conky/curr_cond}°C)
+${goto 190}${color slate grey}Wind: $color${alignr}${execpi 600 sed -n '31p' $HOME/.accuweather_conky/curr_cond} ${execpi 600 sed -n '32p' $HOME/.accuweather_conky/curr_cond}
+${goto 190}${color slate grey}Humidity: $color${alignr}${execpi 600 sed -n '33p' $HOME/.accuweather_conky/curr_cond}
+${goto 190}${color slate grey}Dew Point: $color${alignr}${execpi 600 sed -n '37p' $HOME/.accuweather_conky/curr_cond}°C
+${goto 190}${color slate grey}Pressure: $color${alignr}${execpi 600 sed -n '34p' $HOME/.accuweather_conky/curr_cond}
+${goto 190}${color slate grey}Visibility: $color${alignr}${execpi 600 sed -n '38p' $HOME/.accuweather_conky/curr_cond}
+${goto 190}${color slate grey}Cloud Cover: $color${alignr}${execpi 600 sed -n '35p' $HOME/.accuweather_conky/curr_cond}
+${goto 190}${color slate grey}UV Index: $color${alignr}${execpi 600 sed -n '36p' $HOME/.accuweather_conky/curr_cond} 
+${goto 150}${color slate grey}S/M Rise: $color${alignr}${execpi 600 sed -n '39p' $HOME/.accuweather_conky/curr_cond}/${execpi 600 sed -n '41p' $HOME/.accuweather_conky/curr_cond}
+${goto 150}${color slate grey}S/M Set: $color${alignr}${execpi 600 sed -n '40p' $HOME/.accuweather_conky/curr_cond}/${execpi 600 sed -n '42p' $HOME/.accuweather_conky/curr_cond}
+${color #ffcb48}${hr 1}${color slate grey}
+#${goto 50}${color slate grey}TODAY$color$font${goto 230}${color slate grey}TONIGHT$color$font${image $HOME/.accuweather_conky/tod.png -p 0,975 -s 120x72}${image $HOME/.accuweather_conky/ton.png -p 190,975 -s 120x72}
+#
+#${goto 145}${execpi 600 sed -n '26p' $HOME/.accuweather_conky/first_days}°C${goto 340}${execpi 600 sed -n '31p' $HOME/.accuweather_conky/first_days}°C
+#${goto 140}(${execpi 600 sed -n '27p' $HOME/.accuweather_conky/first_days}°C)${goto 335}(${execpi 600 sed -n '32p' $HOME/.accuweather_conky/first_days}°C)
+${color}${goto 30}${color ffe595}${execpi 600 sed -n '5p' $HOME/.accuweather_conky/first_days}${goto 130}${execpi 600 sed -n '10p' $HOME/.accuweather_conky/first_days}${goto 240}${execpi 600 sed -n '15p' $HOME/.accuweather_conky/first_days}$color${font}${image $HOME/.accuweather_conky/6.png -p 0,860 -s 90x54}
+
+${goto 80}${execpi 600 sed -n '8p' $HOME/.accuweather_conky/first_days}°C${goto 190}${execpi 600 sed -n '13p' $HOME/.accuweather_conky/first_days}°C${goto 285}${execpi 600 sed -n '18p' $HOME/.accuweather_conky/first_days}°C
+${goto 80}${execpi 600 sed -n '9p' $HOME/.accuweather_conky/first_days}°C${goto 190}${execpi 600 sed -n '14p' $HOME/.accuweather_conky/first_days}°C${goto 285}${execpi 600 sed -n '19p' $HOME/.accuweather_conky/first_days}°C${image $HOME/.accuweather_conky/11.png -p 110,860 -s 90x54}${image $HOME/.accuweather_conky/16.png -p 210,860 -s 90x54}
+
+${font DejaVu Sans:size=6}${execpi 600 sed -n '4p' $HOME/.accuweather_conky/messages}${goto 125}${execpi 600 sed -n '5p' $HOME/.accuweather_conky/messages}${goto 200}${execpi 600 sed -n '6p' $HOME/.accuweather_conky/messages}${font}
+###
+
+
+#${color #ffcb48}${font StyleBats:size=18}Q ${font DejaVu Sans:size=16}Weather ${hr 1}${font}
+#$color${image $HOME/.accuweather_conky/cc.png -p 0,700 -s 180x108}
+#${color slate grey}${execpi 600 sed -n '1p' $HOME/.accuweather_conky/messages}${goto 190}${color slate grey}Temp: $color${alignr}${execpi 600 sed -n '29p' $HOME/.accuweather_conky/curr_cond}°C (${execpi 600 sed -n '30p' $HOME/.accuweather_conky/curr_cond}°C)
+#${goto 190}${color slate grey}Wind: $color${alignr}${execpi 600 sed -n '31p' $HOME/.accuweather_conky/curr_cond} ${execpi 600 sed -n '32p' $HOME/.accuweather_conky/curr_cond}
+#${goto 190}${color slate grey}Humidity: $color${alignr}${execpi 600 sed -n '33p' $HOME/.accuweather_conky/curr_cond}
+#${goto 190}${color slate grey}Dew Point: $color${alignr}${execpi 600 sed -n '37p' $HOME/.accuweather_conky/curr_cond}°C
+#${goto 190}${color slate grey}Pressure: $color${alignr}${execpi 600 sed -n '34p' $HOME/.accuweather_conky/curr_cond}
+#${goto 190}${color slate grey}Visibility: $color${alignr}${execpi 600 sed -n '38p' $HOME/.accuweather_conky/curr_cond}
+#${goto 190}${color slate grey}Cloud Cover: $color${alignr}${execpi 600 sed -n '35p' $HOME/.accuweather_conky/curr_cond}
+#${goto 190}${color slate grey}UV Index: $color${alignr}${execpi 600 sed -n '36p' $HOME/.accuweather_conky/curr_cond} 
+#${goto 150}${color slate grey}S/M Rise: $color${alignr}${execpi 600 sed -n '39p' $HOME/.accuweather_conky/curr_cond}/${execpi 600 sed -n '41p' $HOME/.accuweather_conky/curr_cond}
+#${goto 150}${color slate grey}S/M Set: $color${alignr}${execpi 600 sed -n '40p' $HOME/.accuweather_conky/curr_cond}/${execpi 600 sed -n '42p' $HOME/.accuweather_conky/curr_cond}
+#${color #ffcb48}${hr 1}${color slate grey}
+#${goto 50}${color slate grey}TODAY$color$font${goto 230}${color slate grey}TONIGHT$color$font${image $HOME/.accuweather_conky/tod.png -p 0,845 -s 120x72}${image $HOME/.accuweather_conky/ton.png -p 170,845 -s 120x72}
+#${goto 100}${execpi 600 sed -n '26p' $HOME/.accuweather_conky/first_days}°C${goto 275}${execpi 600 sed -n '31p' $HOME/.accuweather_conky/first_days}°C
+#${goto 95}(${execpi 600 sed -n '27p' $HOME/.accuweather_conky/first_days}°C)${goto 270}(${execpi 600 sed -n '32p' $HOME/.accuweather_conky/first_days}°C)
+
+# first
+#${color}${goto 30}${color ffe595}${execpi 600 sed -n '5p' $HOME/.accuweather_conky/first_days}${goto 130}${execpi 600 sed -n '10p' $HOME/.accuweather_conky/first_days}${goto 240}${execpi 600 sed -n '15p' $HOME/.accuweather_conky/first_days}$color${font}${image $HOME/.accuweather_conky/6.png -p 0,845 -s 90x54}
+#${goto 80}${execpi 600 sed -n '8p' $HOME/.accuweather_conky/first_days}°C${goto 190}${execpi 600 sed -n '13p' $HOME/.accuweather_conky/first_days}°C${goto 285}${execpi 600 sed -n '18p' $HOME/.accuweather_conky/first_days}°C
+#${goto 80}${execpi 600 sed -n '9p' $HOME/.accuweather_conky/first_days}°C${goto 190}${execpi 600 sed -n '14p' $HOME/.accuweather_conky/first_days}°C${goto 285}${execpi 600 sed -n '19p' $HOME/.accuweather_conky/first_days}°C${image $HOME/.accuweather_conky/11.png -p 110,845 -s 90x54}${image $HOME/.accuweather_conky/16.png -p 210,845 -s 90x54}
+
+#${goto 50}${font DejaVu Sans:size=6}${execpi 600 sed -n '4p' $HOME/.accuweather_conky/messages}${goto 145}${execpi 600 sed -n '5p' $HOME/.accuweather_conky/messages}${goto 230}${execpi 600 sed -n '6p' $HOME/.accuweather_conky/messages}${font}
+#${color #ffcb48}${hr 1}${color slate grey}
